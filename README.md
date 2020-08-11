@@ -1,1 +1,0 @@
-# OBSS_Java_Summer_School
