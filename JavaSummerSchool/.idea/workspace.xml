@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08e6e076-3ba1-4de2-bb3f-8a0dafbdea14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../webApp/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webApp/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webApp/.idea/webApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/week1/w1Day4/JDBC/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/week1/w1Day4/JDBC/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webApp/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../webApp/src/main/webapp/WEB-INF/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webApp/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../webApp/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +24,10 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1fdG6EfxcWej94M0JzUqhy7ERjy" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -132,10 +139,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="456" y="33" key="#Auto_Import/0.0.1366.728@0.0.1366.728" timestamp="1596712653450" />
-    <state x="829" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1596749335769">
+    <state x="829" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1597161457133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="829" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596749335769" />
+    <state x="829" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597161457133" />
     <state x="771" y="222" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1596717395380">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

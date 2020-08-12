@@ -21,23 +21,21 @@ public class Main {
         Connection con;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/JSSDB?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey","root","Mysql-1552");
-            con.setAutoCommit(false);
-            Statement stmt=con.createStatement();
-
+            DBHelper dbHelper = new DBHelper(DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/JSSDB?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey","root","Mysql-1552"));
 
             //stmt.executeUpdate(CREATE_TABLE_SQL);
             //stmt.executeUpdate(CREATE_WORDS_TABLE_SQL);
 
 
             for(String text: texts){
-                insertTextIntoTextsTable(text,stmt);
+                dbHelper.insertTextIntoTextsTable(text);
             }
 
             //Database'den textleri çekip kelime kelime list'e atıyor.
             List<String> words = new ArrayList<>();
-            ResultSet results = stmt.executeQuery("SELECT * FROM texts;");
+            ResultSet results = dbHelper.getQuery("SELECT * FROM texts;");
+
             while(results.next()){
                 addAllWordsIntoList(words,results.getString("text"));
             }
@@ -46,20 +44,20 @@ public class Main {
             HashMap<String,Integer> wordMap = createWordMapWithFrequences(words);
 
             //Kelimeleri sıklıklarıyla birlikte words tablosuna kaydediyor.
-            insertAllWordIntoWordsTable(wordMap,con);
+            dbHelper.insertAllWordIntoTable(wordMap);
 
             printMap(wordMap);
 
             System.out.println("----------------------------------------------------------");
-            results = stmt.executeQuery("SELECT * FROM words ORDER BY word ASC;");
+            results = dbHelper.getQuery("SELECT * FROM words ORDER BY word ASC;");
             printWordsFromResultSet(results);
 
             System.out.println("----------------------------------------------------------");
-            results = stmt.executeQuery("SELECT * FROM words ORDER BY frequence ASC;");
+            results = dbHelper.getQuery("SELECT * FROM words ORDER BY frequence ASC;");
             printWordsFromResultSet(results);
 
-            con.commit();
-            con.close();
+            dbHelper.commit();
+            dbHelper.close();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -75,16 +73,7 @@ public class Main {
         }
     }
 
-    static void insertAllWordIntoWordsTable(HashMap<String,Integer> wordMap,Connection con) throws SQLException{
-        PreparedStatement preStmt = con.prepareStatement("INSERT IGNORE INTO words (word,frequence) VALUES (?,?);");
 
-        for(Map.Entry<String,Integer> entry:wordMap.entrySet()){
-            preStmt.setString(1,entry.getKey());
-            preStmt.setInt(2,entry.getValue());
-            preStmt.executeUpdate();
-
-        }
-    }
 
     static HashMap<String,Integer> createWordMapWithFrequences(List<String> words)  {
         HashMap<String,Integer> wordMap = new HashMap<>();
@@ -102,12 +91,6 @@ public class Main {
     static void addAllWordsIntoList(List<String> words, String sentence){
         words.addAll(Arrays.asList(sentence.split("[ ]+")));
 
-    }
-
-    static void insertTextIntoTextsTable(String text, Statement stmt) throws SQLException{
-
-        String INSERT_SQL="INSERT IGNORE INTO texts (text) VALUES ('"+text+"');";
-        stmt.executeUpdate(INSERT_SQL);
     }
 
     static void printMap(HashMap<String,Integer> wordMap){
