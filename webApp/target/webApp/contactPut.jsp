@@ -34,15 +34,18 @@ div {
 </style>
 <body>
 
+<%@ page import="day7CRUDApp.entity.Contact" %>
 <%@ include file="dashboard/header.jsp" %>
+<%@ include file="alert.jsp" %>
+<% Contact contact = (Contact)request.getAttribute("contact"); %>
 
 <div>
   <form action = "/webApp/contact/put" method = "POST">
     <label for="name">First Name</label>
-    <input type="text" id="name" name="name" placeholder="Name">
+    <input type="text" id="name" name="name" value="<%= contact.getName() %>">
 
     <label for="tel_num">Last Name</label>
-    <input type="text" id="tel_num" name="tel_num" placeholder="Telephone Number">
+    <input type="text" id="tel_num" name="tel_num" value="<%= contact.getTelNum() %>">
 
     <input type="submit" value="Submit">
   </form>

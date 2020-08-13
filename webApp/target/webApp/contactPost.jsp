@@ -35,7 +35,7 @@ div {
 <body>
 
 <%@ include file="dashboard/header.jsp" %>
-
+<%@ include file="alert.jsp" %>
 <div>
   <form action = "/webApp/contact/post" method = "POST">
     <label for="name">First Name</label>
