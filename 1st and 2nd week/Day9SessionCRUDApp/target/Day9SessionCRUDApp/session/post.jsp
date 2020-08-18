@@ -34,9 +34,9 @@ div {
 </style>
 <body>
 
-<%@ include file="dashboard/header.jsp" %>
+<%@ include file="/dashboard/header.jsp" %>
 <div>
-  <form action = "/webApp/session/post" method = "POST">
+  <form action = "/Day9SessionCRUDApp/session/create" method = "POST">
     <label for="key">Key</label>
     <input type="text" id="key" name="key" placeholder="Key">
 

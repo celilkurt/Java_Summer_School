@@ -23,7 +23,6 @@ public class MyMap  <K,V>{
             return values.get(keys.indexOf(key));
         else
             return null;
-
     }
 
     public void add(K key,V value){

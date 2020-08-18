@@ -10,20 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/list-session-attributes")
+@WebServlet(urlPatterns = "/session/list")
 public class SessionListServlet  extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(SessionListServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //HttpSession session = request.getSession(true);
-        request.getSession().setAttribute("header","Attributes List");
-        request.getSession().setAttribute("example","this is a attribute1");
-        request.getSession().setAttribute("asdw","this is a attribute");
-
         logger.info(request.getAttribute("example"));
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/sessionList.jsp");
+        request.getSession().setAttribute("header","Attribute List");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/session/list.jsp");
         requestDispatcher.forward(request, response);
 
     }

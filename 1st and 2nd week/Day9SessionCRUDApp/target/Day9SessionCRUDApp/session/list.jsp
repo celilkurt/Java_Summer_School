@@ -18,7 +18,7 @@
         </style>
     </head>
     <body>
-        <%@ include file="dashboard/header.jsp" %>
+        <%@ include file="/dashboard/header.jsp" %>
         <center>
             <table>
 
@@ -35,8 +35,8 @@
                     <td> <%= key%></td>
                     <td><%= (String)request.getSession().getAttribute(key)%> </td>
                     <td>
-                        <form action="/webApp/contact/put" method="get">
-                            <input type="hidden" name="name" value="<%= key %>" />
+                        <form action="/Day9SessionCRUDApp/session/update" method="get">
+                            <input type="hidden" name="key" value="<%= key %>" />
                             <input type="submit" value="Update" name="update">
                         </form>
                     </td>
@@ -44,6 +44,7 @@
                 <% } %>
 
             </table>
+            </br><button class="button button2"><a href="http://localhost:7070/Day9SessionCRUDApp/session/delete-all">Delete All</a></button>
         </center>
         </br>
     </body>
