@@ -1,9 +1,8 @@
-package tr.com.obss.JSS_Spring_Examples.component;
+package tr.com.obss.Day11CalculatorApp.component;
 
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import tr.com.obss.JSS_Spring_Examples.Calculator;
+import tr.com.obss.Day11CalculatorApp.Calculator;
 
 @Component("simpleCalculator")
 public class SimpleCalculator implements Calculator<Integer,Integer> {

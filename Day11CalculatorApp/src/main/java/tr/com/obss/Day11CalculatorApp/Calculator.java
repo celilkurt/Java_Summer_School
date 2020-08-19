@@ -1,4 +1,4 @@
-package tr.com.obss.JSS_Spring_Examples;
+package tr.com.obss.Day11CalculatorApp;
 
 public interface Calculator<V,R> {
 

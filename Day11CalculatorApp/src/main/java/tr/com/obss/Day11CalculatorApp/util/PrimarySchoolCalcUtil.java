@@ -1,12 +1,12 @@
-package tr.com.obss.JSS_Spring_Examples.util;
+package tr.com.obss.Day11CalculatorApp.util;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import tr.com.obss.JSS_Spring_Examples.Calculator;
+import tr.com.obss.Day11CalculatorApp.Calculator;
 
-@Component
+@Component("primarySchoolCalcUtil")
 public class PrimarySchoolCalcUtil {
 
     @Autowired

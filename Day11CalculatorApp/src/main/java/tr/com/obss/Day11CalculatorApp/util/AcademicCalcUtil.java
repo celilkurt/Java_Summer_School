@@ -1,16 +1,15 @@
-package tr.com.obss.JSS_Spring_Examples.util;
+package tr.com.obss.Day11CalculatorApp.util;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import tr.com.obss.JSS_Spring_Examples.Calculator;
+import tr.com.obss.Day11CalculatorApp.Calculator;
 
-@Component
+@Component("academicCalcUtil")
 public class AcademicCalcUtil  {
 
     @Autowired
-    @Qualifier("scientificCalculator")
     Calculator<Double,Double> scientificCalculator;
 
     public Double calculate(Double number1, Double number2){
