@@ -46,4 +46,14 @@ public class DistributedContentCache implements ContentCache{
         System.out.println("Cache size: " + contents.size());
     }
 
+    @Override
+    public void printObjectType() {
+        System.out.println("Object type: " + this.getClass());
+    }
+
+    @Override
+    public void deleteAllCache() {
+        contents = null;
+    }
+
 }

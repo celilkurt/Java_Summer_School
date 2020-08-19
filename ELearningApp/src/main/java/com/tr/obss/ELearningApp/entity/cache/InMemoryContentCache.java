@@ -1,6 +1,7 @@
 package com.tr.obss.ELearningApp.entity.cache;
 
 import com.tr.obss.ELearningApp.entity.Content;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,7 @@ import java.util.HashMap;
 
 @Component("inMemoryContentCache")
 @Scope("prototype")
+@Primary
 public class InMemoryContentCache implements ContentCache {
 
     HashMap<Long, Content> contents;
@@ -44,5 +46,15 @@ public class InMemoryContentCache implements ContentCache {
     @Override
     public void printCacheSize() {
         System.out.println("Cache size: " + contents.size());
+    }
+
+    @Override
+    public void printObjectType() {
+        System.out.println("Object type: " + this.getClass());
+    }
+
+    @Override
+    public void deleteAllCache() {
+        contents = null;
     }
 }

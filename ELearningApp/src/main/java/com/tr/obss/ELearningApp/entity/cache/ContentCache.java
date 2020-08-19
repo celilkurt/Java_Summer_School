@@ -12,4 +12,9 @@ public interface ContentCache {
     Content removeContent(Content content);
 
     void printCacheSize();
+
+    void printObjectType();
+
+    void deleteAllCache();
+
 }

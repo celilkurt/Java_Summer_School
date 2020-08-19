@@ -13,7 +13,7 @@ public class ELearningContent extends Content{
 
     @Override
     public void calculateSuccess() {
-
+        System.out.println("Success!");
     }
 
 

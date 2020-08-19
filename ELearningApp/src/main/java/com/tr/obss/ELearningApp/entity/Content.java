@@ -10,7 +10,7 @@ import java.util.Date;
 public abstract class Content implements Cloneable{
 
     private long id;
-    private String Url;
+    private String url;
     private String name;
     private Date publishDate;
     private Date endDate;
@@ -24,7 +24,7 @@ public abstract class Content implements Cloneable{
         this.publishDate = publishDate;
         this.endDate = endDate;
         this.successRatio = successRatio;
-        this.Url = url;
+        this.url = url;
     }
 
 
@@ -38,7 +38,7 @@ public abstract class Content implements Cloneable{
     public String toString() {
         return "Content{" +
                 "id=" + id +
-                ", Url='" + Url + '\'' +
+                ", Url='" + url + '\'' +
                 ", name='" + name + '\'' +
                 ", publishDate=" + publishDate +
                 ", endDate=" + endDate +

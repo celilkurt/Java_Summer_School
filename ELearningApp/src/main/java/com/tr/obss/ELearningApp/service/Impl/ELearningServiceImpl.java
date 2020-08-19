@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.HashMap;
 
 @Component
@@ -15,7 +17,6 @@ public class ELearningServiceImpl implements ELearningService {
 
     HashMap<Long,ELearningContent> contents;
     @Autowired
-    @Qualifier("inMemoryContentCache")
     ContentCache cache;
 
     public ELearningServiceImpl() {
@@ -26,6 +27,12 @@ public class ELearningServiceImpl implements ELearningService {
     public ELearningServiceImpl(HashMap<Long, ELearningContent> contents, InMemoryContentCache cache) {
         this.contents = contents;
         this.cache = cache;
+    }
+
+    @PostConstruct
+    private void postConstruct() {
+
+        cache.printObjectType();
     }
 
     @Override
@@ -54,5 +61,13 @@ public class ELearningServiceImpl implements ELearningService {
     public ContentCache getContentCache() {
 
         return cache;
+    }
+
+    @PreDestroy
+    private void postDestroy() {
+
+        cache.deleteAllCache();
+        contents = null;
+        System.out.println("Caches and contents deleted!!");
     }
 }
