@@ -1,9 +1,9 @@
 package com.tr.obss.WebApp.model;
 
 public class User{
-    private String username;
-    private String email;
-    private int age;
+    public String username;
+    public String email;
+    public int age;
 
     public User(String username, String email, int age) {
         this.username = username;
@@ -36,5 +36,14 @@ public class User{
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
