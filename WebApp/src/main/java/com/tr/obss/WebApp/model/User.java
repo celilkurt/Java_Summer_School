@@ -1,42 +1,23 @@
 package com.tr.obss.WebApp.model;
+import lombok.*;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class User{
-    public String username;
-    public String email;
-    public int age;
 
-    public User(String username, String email, int age) {
-        this.username = username;
-        this.email = email;
-        this.age = age;
-    }
-
-    public User() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+    private long id;
+    @Size(min=2)
+    private String username;
+    @Email
+    private String email;
+    @Size
+    private int age;
 
     @Override
     public String toString() {
