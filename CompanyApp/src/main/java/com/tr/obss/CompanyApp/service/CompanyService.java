@@ -3,7 +3,6 @@ package com.tr.obss.CompanyApp.service;
 
 import com.tr.obss.CompanyApp.dao.CompanyRepository;
 import com.tr.obss.CompanyApp.entity.Company;
-import com.tr.obss.CompanyApp.entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

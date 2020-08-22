@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -25,24 +26,25 @@ public class CompanyController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<Company> getCompanyWithId(@PathVariable Long id) {
+    public ResponseEntity<Company> getCompanyById(@PathVariable Long id) {
 
         return companyService.getCompanyById(id);
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<Company> addUser(@PathVariable String name) {
+    public ResponseEntity<Company> getCompanyByName(@PathVariable String name) {
 
         return companyService.getCompanyByName(name);
     }
 
     @PostMapping
-    public ResponseEntity<Company> addCompany(@Valid @RequestBody Company company) {
+    @Transactional
+    public ResponseEntity<Company> addCompanyWithEmployee(@Valid @RequestBody Company company) {
 
         return companyService.addCompany(company);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<String> deleteCompanyById(@PathVariable Long id){
 
         return companyService.deleteUserById(id);
