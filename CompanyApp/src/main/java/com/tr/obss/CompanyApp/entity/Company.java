@@ -9,8 +9,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Getter
-@Setter
 @Entity
 @Table(name = "company")
 public class Company {
@@ -21,7 +19,7 @@ public class Company {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     private List<User> employees;
 
