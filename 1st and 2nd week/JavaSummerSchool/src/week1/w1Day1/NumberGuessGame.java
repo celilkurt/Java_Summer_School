@@ -11,21 +11,18 @@ public class NumberGuessGame {
         int number = random.nextInt(100);
         Scanner sc = new Scanner(System.in);
         int guess;
-        boolean key = false;
 
         System.out.println("//Number: " + number);
 
 
-        int meter = 0;
-        while(meter++ < 5){
+        for (int i = 0; i < 5; i++){
 
-            System.out.print(meter + ". guess: ");
+            System.out.print((i+1) + ". guess: ");
             guess = sc.nextInt();
 
             if(guess == number){
-                key = true;
                 System.out.println("You win.");
-                break;
+                return;
             }else if( guess < number){
                 System.out.println("Try bigger");
             }else if( guess > number){
@@ -33,8 +30,7 @@ public class NumberGuessGame {
             }
         }
 
-        if(!key)
-            System.out.println("You lose. Number is " + number);
+        System.out.println("You lose. Number is " + number);
 
 
     }
