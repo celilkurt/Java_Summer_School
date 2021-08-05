@@ -14,18 +14,13 @@ public class Array2D {
 
 
         String[][] cities = new String[n][];
-        int meter = 0;
-
-        while(meter < n){
-            cities[meter++] = sc.nextLine().split(" ");
+        
+        for (int i = 0; i < n; i++) {
+            cities[i] = sc.nextLine().split(" ");
         }
 
-        for(String[] arr: cities){
-            System.out.print("Counties: ");
-            for(String city: arr)
-                System.out.print(city + " ");
-
-            System.out.println();
+        for(String[] counties: cities){
+            System.out.println("Counties: " + String.join(" ", counties));
         }
     }
 
