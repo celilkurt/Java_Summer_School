@@ -9,23 +9,29 @@ public class AverageOfGrades {
 
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> grades = new ArrayList<>();
-        int grade = 0;
+        
+        int grade = takeGrade();
 
-        while(true){
-            System.out.print("Grade: ");
-            grade = sc.nextInt();
+        while(grade != 101){
 
-            if(grade == 101)
-                break;
-            else if(grade < 0)
+            if(grade < 0)
                 System.out.println("Wrong input!");
             else
                 grades.add(grade);
 
+            grade = takeGrade();
         }
 
-        int total = grades.stream().mapToInt(tempGrade -> tempGrade).sum();
-        System.out.println("Average of "+ grades.size() +" grades: " + total/grades.size());
+        int sumOfGrades = grades.stream().mapToInt(tempGrade -> tempGrade).sum();
+        float gradesAverage = sumOfGrades/grades.size();
+        
+        System.out.println("Average of "+ grades.size() +" grades: " + gradesAverage);
 
+    }
+    
+    public static int takeGrade(Scanner sc) {
+     
+        System.out.print("Grade: ");
+        return sc.nextInt();
     }
 }
